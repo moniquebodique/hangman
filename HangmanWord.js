@@ -1,51 +1,47 @@
-var mysql = require("mysql");
-var inquirer = require("inquirer");
 
-var connection = mysql.createConnection({
-	host: "localhost",
-	port: 3306,
+ 	var array = ['cat', 'dog', 'pig', 'bat', 'horse']
+ 		class Letter {
+ 			constructor (letter){
+ 				this.letter = letter;
+ 			}
+ 		}
+ 		class Word {
+ 			constructor (word){
+ 				this.word = word;
+ 			}
+ 		}
 
-	user: "root",
-	password: "Frogger123",
-	database: "items_db"
-});
+// 	call function playgame(); which will hold all of game logic
+ 	 playgame();
 
-connection.connect(function(err) {
- if (err) throw err;
- console.log("connected as id " + connection.threadId);
- printSongByArtist();
-  connection.end();
+ 	 function playgame(){
+ 	 var index = Math.round(Math.random() * 4);
+ 	 var guesses = 5;
 
-});
+ 	 var guessWord = new Word(array[index]);
+ 	 console.log(guessWord.word);
+
+	var letters = [];
+ 	 for (var i = 0; i < guessWord.word.length; i++) {
+ 	 	var letter = new Letter(guessWord.word.charAt(i))
+ 	 	letters.push(letter);
+ 	 	console.log (letter.letter);
+ 	 }
+ 	 }
+
+ 	 var isGameOn = true;
+
+ 	 while (isGameon){
+ 	 	//inquirer stuff
+ 	 	//if statement checking if user has won or lost
+ 	 	//if they won or lost isGame=false
+
+ 	 }
+// display guessword as dashes
+// get input from user
+// reveal any letter or decrease guesses left
+// prompt if user wins, reset playgame function
+// prompt if user loses, reset playgame function
 
 
-
-
-var wins = 0;
-var losses = 0;
-var numberOfGuessesHumanHas = 10;
-var lettersAlreadyGuessedByHuman = 0;
-
-var reset = function () {
-	numberOfGuessesHumanHas = 0;
-	lettersAlreadyGuessedByHuman = 10;
-					}
-
-function Start(){
-	inquirer.prompt([
-	{
-		type: 'list',
-		choices: [A, B, C, D, E, F, G, H, I, J, K, L, M, N, 
-		O, P, Q, R, S, T, U, V, W, X, Y, Z],
-		name: 'choice',
-		message: 'Pick a letter'
-		}])
-	.then((function(answer){
-		switch (answer.action) {
-		case "FInd songs by artist":
-		artistSearch();
-		break;
-
-		
-		}
-		});
+ //end  of game function
